@@ -133,7 +133,7 @@
         }
     
         .card {
-    display: block; /* Garante que o formulário esteja visível */
+    display: block; 
 }
 
         .card.active {
@@ -289,7 +289,7 @@
     <body>
         <img src="https://i.imgur.com/GU8oq2S.png" alt="Imagem Inicial" class="initial-image">
         <div class="container">
-            <!-- Removido o botão para exibir diretamente o formulário -->
+            
             
             <div class="card" id="postagem_testes">
                 <div class="tittle">Graduação Básica</div>
@@ -333,7 +333,7 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
     $(document).ready(function() {
-        // Preenche a data e horário no input "inicio_aplicacao" ao carregar a página
+      
         preencher_data('inicio_aplicacao');
 
         $('#select_options').on('change', function() {
@@ -346,7 +346,7 @@
         e.preventDefault();
         var isValid = true;
 
-        // Verifica se todos os campos obrigatórios estão preenchidos
+    
         if($("#postagem_testes_forms").find("input").val().trim() === "") {
             isValid = false;
         }
@@ -364,23 +364,23 @@
             document.getElementById('fa-generated-message').value = texto;
 
             var form = document.getElementById("postagem_testes_forms");
-            var link_url = 'https://script.google.com/macros/s/AKfycbxnXGLlV4pHdQBAfI9RDHEI6u6kqeYy0iI9cxESKBWVzJIUsCsRb0Sx9lAysBzBqqAvxA/exec';
+            var link_url = 'https://script.google.com/macros/s/AKfycbyK_7Ntfw97bIBsK1sACvPZQBLC_DDzn6MfxwNndmXePJUKnEpqyQ5z25E85iJ39uEHWQ/exec';
 
             fetch(link_url, { method: 'POST', body: new FormData(form)})
                 .then(response => {
                     console.log('Respostas enviadas!');
                     if ($("#nickname_aprov").val().trim() === '') {
-                        // Redireciona se o campo de Policiais Aprovados estiver vazio
+                        
                         window.location.href = 'https://www.policiarcc.com/f437-om-graduadores';
                     } else if (parseInt($("#necessidade_novos").val()) != 5) {
-                        postToForum(); // Chama a função para postar no fórum
+                        postToForum(); 
                     }
                 })
                 .catch(error => {
                     console.error('Resposta não enviada para a planilha. Contate um membro do ministério!');
                 });
 
-            window.open('https://docs.google.com/spreadsheets/d/1q2_dPD0ZXqhsbJDvozwUwyvTDJr-t-xQn6vS-9T4ZhU/edit?usp=sharing');
+            window.open('https://docs.google.com/spreadsheets/d/1FPWWy6pATeT2XKl0eJJHjO2ctCrTfzipbeH7xJSvymU/edit?usp=sharing');
         } else {
             alert('Preencha todos os campos!');
         }
@@ -389,7 +389,7 @@
 
     function preencher_data(id) {
         var horario = new Date();
-        horario.setMinutes(horario.getMinutes() + horario.getTimezoneOffset() - 180); // Ajusta para o fuso horário
+        horario.setMinutes(horario.getMinutes() + horario.getTimezoneOffset() - 180); 
         var data_hoje = horario.getDate().toString().padStart(2, '0');
         const meses = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul","Ago","Set","Out","Nov","Dez"];
         var mes_hoje = meses[horario.getMonth()];
@@ -418,7 +418,7 @@
             var entradas = nickname_aprov.split('/');
             var lista = '';
             entradas.forEach(function (nickname) {
-                nickname = nickname.trim(); // Remove espaços extras
+                nickname = nickname.trim(); 
                 lista += "\n[b]Nick:[/b] " + nickname + " - " + data_hoje + ' ' + mes_hoje + ' ' + ano_hoje;
             });
 
@@ -448,7 +448,6 @@
     }
 </script>
 
-
     <script>
     function toggleForm(formId) {
         $(".card").hide(); 
@@ -458,23 +457,20 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Função para obter parâmetros da URL
+           
             function getQueryParam(param) {
                 var urlParams = new URLSearchParams(window.location.search);
                 return urlParams.get(param);
             }
 
-            // Obtenha o nome do usuário da URL
+            
             var nomeUsuario = getQueryParam('nome');
 
-            // Defina o valor do input se o nome do usuário estiver disponível
+           
             if (nomeUsuario) {
                 document.getElementById('nickname_aplicador').value = nomeUsuario;
             }
         });
     </script>
-
-
-
     </body>
     </html>
