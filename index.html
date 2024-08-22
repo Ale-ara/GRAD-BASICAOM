@@ -456,5 +456,25 @@
     }
     </script>
     
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Função para obter parâmetros da URL
+            function getQueryParam(param) {
+                var urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(param);
+            }
+
+            // Obtenha o nome do usuário da URL
+            var nomeUsuario = getQueryParam('nome');
+
+            // Defina o valor do input se o nome do usuário estiver disponível
+            if (nomeUsuario) {
+                document.getElementById('nickname_aplicador').value = nomeUsuario;
+            }
+        });
+    </script>
+
+
+
     </body>
     </html>
